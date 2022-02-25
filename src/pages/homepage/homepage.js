@@ -18,6 +18,7 @@ const HomePage = () => {
 
     // State
     const [ entered, setEntered ] = useState(false);
+    const [ finishedEnter, setFinishEnter ] = useState(false);
     const buttonTexts = ["", "_ _ _ _", "J _ _ _", "J _ _ _", "J O _ _", "J O _ _", "J O I _", "J O I _", "J O I N", "J O I N", "J O I N","J O I N","J O I N","J O I N","J O I N","J O I N","J O I N","J O I N","神","の","死","us","us"];
     const [ buttonText, setButtonText ] = useState("J O I N");
     const [ buttonTextIdx, setButtonTextIdx ] = useState(0);
@@ -27,6 +28,9 @@ const HomePage = () => {
     // FakeTerminals
     useEffect( () => {
         if( entered ){
+            const feTimeout = setTimeout( () => {
+                setFinishEnter(true)
+            }, 10000)
             const timeouts = []
             for(let i=0; i < terminalsObjects.length; i++) {
                 const { codeLines, fakeTerminalStyle, delay } = terminalsObjects[i];
@@ -43,6 +47,7 @@ const HomePage = () => {
             }
             
             return () => {
+                clearTimeout(feTimeout);
                 for(let i = 0; i < timeouts.length; i++){
                     clearTimeout(timeouts[i]);
                 }
@@ -78,7 +83,7 @@ const HomePage = () => {
     // Background
     const renderBgVideo = () => {
         if(entered){
-            return (<video key={1} autoPlay muted className="bgVideo">
+            return (<video key={1} autoPlay muted className="bgVideo" >
                         <source src={bgVideo} type="video/mp4"/>
                     </video> 
                     );
@@ -99,7 +104,7 @@ const HomePage = () => {
             {renderBgVideo()}
             <EnterButton onClick={handleEnterClick} text={buttonText}/>
             {entered && <NavBar/>}
-            {entered && terminalsToRender.map( (item) => item)}
+            {entered && (!finishedEnter) && terminalsToRender}
         </div>
     )
 }
