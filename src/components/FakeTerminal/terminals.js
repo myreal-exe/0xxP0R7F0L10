@@ -136,9 +136,9 @@ const terminal_5 = {
     ],
     fakeTerminalStyle: {
         height: "20em",
-        width: "50em",
+        width: "45em",
         top: "20vh",
-        left: "40vh"
+        left: "56vh"
     },
     delay:2800
 
@@ -177,7 +177,7 @@ const terminal_6 = {
         [".","haxx0rxddd@kali:~$"],
     ],
     fakeTerminalStyle: {
-        height: "40em",
+        height: "42em",
         width: "17em",
         top: "10vh",
         left: "145vh"

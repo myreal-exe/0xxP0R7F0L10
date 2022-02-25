@@ -66,6 +66,7 @@ const FakeTerminal = ( {codeList, style} ) => {
         backgroundColor: "black",
         opacity: 0.74,
         border: "5px solid green",
+        overflow: "hidden",
         ...style
     }
 
