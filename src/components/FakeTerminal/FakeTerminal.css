@@ -1,0 +1,52 @@
+@font-face {
+    font-family: "BitMap";
+    src: local("BitMap"),url("../../fonts/BitMap.ttf");
+  }
+  
+  @font-face {
+    font-family: "bitcell_memesbruh03";
+    src: local("bitcell_memesbruh03"),url("../../fonts/bitcell_memesbruh03.ttf");
+  }
+  
+  @font-face {
+    font-family: "bitlow";
+    src: local("bitlow"),url("../../fonts/bitlow.ttf");
+  }
+  
+  @font-face {
+    font-family: "bitbox";
+    src: local("bitbox"),url("../../fonts/bitbox.ttf");
+  }
+  
+  @font-face {
+    font-family: "BitBold";
+    src: local("BitBold"),url("../../fonts/BitBold.ttf");
+  }
+  
+  @font-face {
+    font-family: "BitMicro01";
+    src: local("BitMicro01"),url("../../fonts/BitMicro01.ttf");
+  }
+
+
+
+.code{
+    color: red;
+    font-family: "bitcell_memesbruh03";
+    font-size: 20px;
+}
+
+.windowBar {
+  display: flex;
+  justify-content: right;
+  background-color: green;
+  align-items: center;
+  width: 100%;
+  height: 1em;
+}
+
+.windowBarButtons{
+  position: relative;
+  width:9.1%;
+  float: right;
+}
