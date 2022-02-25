@@ -20,8 +20,8 @@ const terminal_1 = {
         [".","haxx0rxddd@kali:~$"]
     ],
     fakeTerminalStyle: {
-        height: "31em",
-        width: "36em",
+        height: "24em",
+        width: "26em",
         top: "10vh",
         left: "5vh"
     },
@@ -52,8 +52,8 @@ const terminal_2 = {
         [".",">>> haxx0rxddd@kali:~$ ./restore.sh communism"]
     ],
     fakeTerminalStyle: {
-        height: "40em",
-        width: "34em",
+        height: "30em",
+        width: "27em",
         top: "10vh",
         left: "70vh"
     },
@@ -84,8 +84,8 @@ const terminal_3 = {
         [".","haxx0rxddd@kali:~$ "]
     ],
     fakeTerminalStyle: {
-        height: "35em",
-        width: "50em",
+        height: "25em",
+        width: "24em",
         top: "37vh",
         left: "90vh"
     },
@@ -109,8 +109,8 @@ const terminal_4 = {
         [".",">>> }"],
     ],
     fakeTerminalStyle: {
-        height: "30em",
-        width: "35em",
+        height: "20em",
+        width: "22em",
         top: "50vh",
         left: "20vh"
     },
@@ -177,10 +177,10 @@ const terminal_6 = {
         [".","haxx0rxddd@kali:~$"],
     ],
     fakeTerminalStyle: {
-        height: "50em",
-        width: "30em",
+        height: "40em",
+        width: "17em",
         top: "10vh",
-        left: "130vh"
+        left: "145vh"
     },
     delay:3300
 
@@ -201,9 +201,9 @@ const terminal_7 = {
         [".",">>> haxx0rxddd@kali:~$"]
     ],
     fakeTerminalStyle: {
-        height: "20em",
-        width: "50em",
-        top: "62vh",
+        height: "16em",
+        width: "38em",
+        top: "64vh",
         left: "8vh"
     },
     delay:3600

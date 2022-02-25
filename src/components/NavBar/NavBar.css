@@ -5,7 +5,9 @@
     -webkit-animation: fading 3.5s forwards;
     animation: fading 3.5s forwards;
 }
-
+h1 {
+    font-size: 20px;
+}
 @keyframes fading {
     0% { opacity: 0; }
     80% { opacity: 0}
