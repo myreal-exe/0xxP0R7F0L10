@@ -8,3 +8,13 @@
     width: 100%;
     height: 100%;
 }
+
+#nameLogo{
+    width: 100%;
+    text-align: center;
+    top:45%;
+    position: absolute;
+    color: white;
+    margin: 0 auto;
+    font-size: 40px;
+}

@@ -1,10 +1,14 @@
 import React, { useEffect, useState, useRef } from 'react';
 import ReactDOM from 'react-dom';
+import { Route } from 'react-router-dom';
+import { Typewriter } from 'react-simple-typewriter'
 
+// Components
 import EnterButton from "../../components/EnterButton/EnterButton";
 import NavBar from '../../components/NavBar/NavBar';
 import FakeTerminal from '../../components/FakeTerminal/FakeTerminal';
 import { terminalsObjects } from '../../components/FakeTerminal/terminals';
+
 // Media
 import promptVideo from "../../media/dedsec_prompt.mp4";
 import bgVideo from "../../media/dedsec_art_only.mp4";
@@ -12,16 +16,22 @@ import bgVideo from "../../media/dedsec_art_only.mp4";
 import "./homepage.css";
 
 
-const HomePage = () => {
+const HomePage = ({ entered, onEnterClick}) => {
 
     const videoRef= useRef();
 
     // State
-    const [ entered, setEntered ] = useState(false);
-    const [ finishedEnter, setFinishEnter ] = useState(false);
+    //// Rendering Conditionals
+    const [ finishedEnter, setFinishedEnter ] = useState(false);
+    const [ showLogo, setShowLogo ]  = useState(false);
+
+    //// enter
     const buttonTexts = ["", "_ _ _ _", "J _ _ _", "J _ _ _", "J O _ _", "J O _ _", "J O I _", "J O I _", "J O I N", "J O I N", "J O I N","J O I N","J O I N","J O I N","J O I N","J O I N","J O I N","J O I N","神","の","死","us","us"];
+
     const [ buttonText, setButtonText ] = useState("J O I N");
     const [ buttonTextIdx, setButtonTextIdx ] = useState(0);
+
+    //// terminals
     const [ terminalsToRender, setTerminalsToRender] = useState([]);
 
     
@@ -29,8 +39,12 @@ const HomePage = () => {
     useEffect( () => {
         if( entered ){
             const feTimeout = setTimeout( () => {
-                setFinishEnter(true)
+                setFinishedEnter(true)
             }, 10000)
+
+            const nameLogoTimeout = setTimeout( () => {
+                setShowLogo(true)
+            }, 14000)
             const timeouts = []
             for(let i=0; i < terminalsObjects.length; i++) {
                 const { codeLines, fakeTerminalStyle, delay } = terminalsObjects[i];
@@ -48,6 +62,7 @@ const HomePage = () => {
             
             return () => {
                 clearTimeout(feTimeout);
+                clearTimeout(nameLogoTimeout);
                 for(let i = 0; i < timeouts.length; i++){
                     clearTimeout(timeouts[i]);
                 }
@@ -74,12 +89,6 @@ const HomePage = () => {
         return () => clearInterval(buttonTextInterval);
     });
 
-    // Enter
-    const handleEnterClick = (e) => {
-        e.preventDefault()
-        setEntered(true);
-    }
-
     // Background
     const renderBgVideo = () => {
         if(entered){
@@ -98,13 +107,22 @@ const HomePage = () => {
         videoRef.current.playbackRate = 0.4;
     };
 
-    
+    // nameLogo
+    const nameLogo = (<span id="nameLogo">
+        <Typewriter
+        words={ ["","MYREAL-EXE"]}
+        cursor={true}
+        cursorStyle={"_"}
+        delaySpeed={200}
+        />
+    </span>)
     return (
         <div id="HomePage">
             {renderBgVideo()}
-            <EnterButton onClick={handleEnterClick} text={buttonText}/>
-            {entered && <NavBar/>}
+            {entered && <NavBar animate={true}/>}
+            <EnterButton onClick={onEnterClick} text={buttonText}/>
             {entered && (!finishedEnter) && terminalsToRender}
+            {showLogo && nameLogo}
         </div>
     )
 }
